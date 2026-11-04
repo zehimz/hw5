@@ -1,3 +1,5 @@
+/////////////////////////////////////////////////////////////////////////* First Question *//////////////////////////////////////////////////////////////////////////////////
+
 // let isTrue = true;
 
 
@@ -52,3 +54,33 @@ function plannedPages(days, dailyPages, restOnSeventhDay) {
 
 
 console.log(plannedPages(7, 20, true));
+console.log(plannedPages(61, 20, true));
+
+
+
+/////////////////////////////////////////////////////////////////////////* Second Question *//////////////////////////////////////////////////////////////////////////////////
+
+
+function remainingPages(goalPages, readPages) {
+    if (Number.isInteger(goalPages) == false || goalPages > 5000 || goalPages < 1) {
+
+        return null;
+    }
+    if (Number.isInteger(readPages) == false || readPages > 6000 || readPages < 0) {
+
+        return null;
+    }
+    if (goalPages <= readPages){
+        return 0;
+    }
+    totalRemainPages = goalPages - readPages
+    return totalRemainPages
+
+}
+console.log(remainingPages(200, 79));
+console.log(remainingPages(200, 220));
+console.log(remainingPages(0, 0) );
+
+
+/////////////////////////////////////////////////////////////////////////* Third Question *//////////////////////////////////////////////////////////////////////////////////
+
