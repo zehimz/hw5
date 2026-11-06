@@ -70,17 +70,57 @@ function remainingPages(goalPages, readPages) {
 
         return null;
     }
-    if (goalPages <= readPages){
+    if (goalPages <= readPages) {
         return 0;
     }
-    totalRemainPages = goalPages - readPages
+    let totalRemainPages = goalPages - readPages
     return totalRemainPages
 
 }
 console.log(remainingPages(200, 79));
 console.log(remainingPages(200, 220));
-console.log(remainingPages(0, 0) );
+console.log(remainingPages(0, 0));
 
 
 /////////////////////////////////////////////////////////////////////////* Third Question *//////////////////////////////////////////////////////////////////////////////////
 
+
+
+function daysToFinish(pagesLeft, dailyPages, restOnSeventhDay) {
+
+
+    let totalRead = 0;
+    let daysCounter = 0;
+
+
+    if (Number.isInteger(pagesLeft) == false || pagesLeft > 5000 || pagesLeft < 0) {
+        return null
+    }
+    if (Number.isInteger(dailyPages) == false || dailyPages > 100 || dailyPages < 1) {
+        return null
+    }
+    if (typeof (restOnSeventhDay) !== "boolean") {
+        return null;
+    }
+    if (pagesLeft === 0) {
+        return 0;
+    }
+
+
+    while (pagesLeft > totalRead) {
+        daysCounter++;
+
+        if (restOnSeventhDay === true && daysCounter % 7 === 0) {
+            /* rest */
+        } else {
+            totalRead = totalRead + dailyPages
+        }
+    }
+
+    /* if (!(restOnSeventhDay === true && daysCounter % 7 === 0)){
+     totalRead = totalRead + dailyPages
+    }*/
+    return daysCounter;
+
+}
+/////////////////////////////////////////////////////////////////////////* Forth Question *//////////////////////////////////////////////////////////////////////////////////
